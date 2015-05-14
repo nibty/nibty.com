@@ -1,31 +1,34 @@
 html, body {
     padding-top: 50px;
     padding-bottom: 50px;
-    background: rgba(116, 175, 173, 0.7);
+    background: rgba(42, 125, 161, 0.3);
     font-family: 'Open Sans', sans-serif;
     height: 100%;
 }
 
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
-    background-color: #D9853B;
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
+    background-color: #FF5E3A;
+}
+
+.navbar-inverse .navbar-nav>.active>a:hover  {
+    background-color: #FF9F88;
+}
+
+a:link, a:visited {
+    color: #FF5E3A;
+}
+
+a:hover, a:active {
+    color: #FF9F88;
+    text-decoration: none;
 }
 
 .navbar-inverse {
     background-color: #D9853B;
 }
 
-a:link, a:visited {
-    color: #D9853B;
-}
-
-a:hover, a:active {
-    color: #FFF;
-    text-decoration: none;
-}
-
-
 .navbar {
-    background: rgba(64, 64, 64, 0.7);
+    background: rgba(64, 64, 64, 0.3);
     border-width: 0;
 }
 
@@ -61,7 +64,7 @@ a:hover, a:active {
 
 .footer {
     text-align: center;
-    background: rgba(64, 64, 64, 0.7);
+    background: rgba(64, 64, 64, 0.3);
     padding: 15px 0 0 0;
 }
 
