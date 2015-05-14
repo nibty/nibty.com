@@ -6,38 +6,34 @@ module.exports = function(grunt) {
 
       jshint: {
           dev: {
-              src: ['public/js/nibty.js']
+              src: ['assets/js/nibty.js']
           }
       },
 
-      copy: {
+      sass: {
+          dist: {
+              files: {
+                  'assets/css/nibty.css': 'assets/css/nibty.scss'
+              }
+          }
+      },
+
+      concat: {
           js: {
-              files: [
-                  {src: ['node_modules/bootstrap/dist/js/bootstrap.min.js'], dest: 'public/js/bootstrap.min.js', filter: 'isFile'},
-                  {src: ['node_modules/jquery/dist/jquery.min.js'], dest: 'public/js/jquery.min.js', filter: 'isFile'},
-                  {src: ['node_modules/jquery/dist/jquery.min.js'], dest: 'public/js/jquery.min.js', filter: 'isFile'},
-                  {src: ['node_modules/jquery.backstretch/jquery.backstretch.min.js'], dest: 'public/js/jquery.backstretch.min.js', filter: 'isFile'}
-              ]
+              src: [
+                  'node_modules/jquery/dist/jquery.min.js',
+                  'assets/js/*.js',
+                  'node_modules/bootstrap/dist/js/bootstrap.min.js',
+                  'node_modules/jquery.backstretch/jquery.backstretch.min.js'
+              ],
+              dest: 'public/js/app.js'
           },
           css: {
-              files: [
-                  {expand: true, src: ['node_modules/bootstrap/dist/css/bootstrap.min.css'], dest: 'public/css/', filter: 'isFile'},
-                  {expand: true, src: ['node_modules/bootstrap/dist/css/bootstrap-theme.min.css'], dest: 'public/css/', filter: 'isFile'},
-              ]
-          }
-      },
-
-      watch: {
-          options: {
-              livereload: true
-          },
-          css: {
-              files: ['public/css/*.css'],
-              tasks: ['copy:css']
-          },
-          scripts: {
-              files: ['public/js/*.js'],
-              tasks: ['uglify', 'copy:js']
+              src: [
+                  'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                  'assets/css/*.css'
+              ],
+              dest: 'public/css/app.css'
           }
       },
 
@@ -46,9 +42,39 @@ module.exports = function(grunt) {
               report: 'min'
           },
           build: {
-              src: 'public/js/nibty.js',
-              dest: 'public/js/nibty.min.js'
+              src: 'public/js/app.js',
+              dest: 'public/js/app.min.js'
           }
+      },
+
+      cssmin: {
+          options: {
+              keepSpecialComments: 0
+          },
+          css:{
+              src: 'public/css/app.css',
+              dest: 'public/css/app.min.css'
+          }
+      },
+
+      watch: {
+          options: {
+              livereload: true
+          },
+          css: {
+              files: ['assets/css/*.scss'],
+              tasks: ['default']
+          },
+          js: {
+              files: ['assets/js/*.js'],
+              tasks: ['default']
+          }
+      },
+
+      clean: {
+          js: ["public/js/*.js", "!public/js/app.min.js"],
+          css: ["public/css/*.css", "!public/css/app.min.css"],
+          sass: ["assets/css/*.css", "assets/css/*.css.map", "!assets/css/*.scss", "!/assets/css/*.sass"]
       }
   });
 
@@ -57,8 +83,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint:dev', 'uglify', 'copy', 'watch:css', 'watch:scripts']);
+  grunt.registerTask(
+      'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'cssmin', 'clean']
+  );
 
 };
