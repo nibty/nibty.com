@@ -1,70 +1,73 @@
+/**
+ * nibty.com javascript
+ *
+ * Author: Nicholas Pettas <npettas@gmail.com>
+ *
+ */
 $(document).ready(function () {
+
+    var sabnzbdUrl = "http://nzb.nickpettas.com";
+    var sabnzbdUrlMobile = "http://nzb.nickpettas.com/m";
+    var plexUrl = "http://plex.tv/web/app";
+    var plexUrlMobile = "https://itunes.apple.com/us/app/plex/id383457673";
+    var couchPotatoUrl = "http://nzbmovies.nibty.com";
+    var sickBeardUrl = "http://tvshows.nibty.com";
+    var headPhonesUrl = "http://nzbmusic.nibty.com";
+
+    // Fade main content in
     $(".main").fadeIn(500);
 
-    $(".navbar-collapse").click(function (event) {
-        $(".navbar-collapse").removeClass("in").addClass("collapse");
-    });
-
+    // Switch to home page
     $("#home").click(function () {
         $("#embed").hide();
         $(".footer").show();
         $(".main").show();
     });
 
+    // Switch to plex webapp or mobile App
     $("#plex_menu").click(function () {
         $(".main").hide();
         $(".footer").hide();
-        if (isMobile(navigator.userAgent))  {
-            window.location = "https://itunes.apple.com/us/app/plex/id383457673";
+        if (isMobile(navigator.userAgent)) {
+            window.location = plexUrlMobile;
         } else {
-            window.location = "http://plex.tv/web/app";
+            window.location = plexUrl;
         }
-     });
+    });
 
+    // Switch to Sabnzbd App
     $("#sabnzbd_menu").click(function () {
         $(".main").hide();
         $(".footer").hide();
         if (isMobile(navigator.userAgent)) {
-            $("#embed").html("<iframe class='iframe' src='http://nzb.nickpettas.com/m'></iframe>").fadeIn();
+            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrlMobile + "'></iframe>").fadeIn();
         } else {
-            $("#embed").html("<iframe class='iframe' src='http://nzb.nickpettas.com/'></iframe>").fadeIn();
+            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrl + "'></iframe>").fadeIn();
         }
     });
 
+    // Switch to CouchPotato App
     $("#couchpotato_menu").click(function () {
         $(".main").hide();
         $(".footer").hide();
-        $("#embed").html("<iframe class='iframe' src='http://nzbmovies.nibty.com/'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='iframe' src='" + couchPotatoUrl + "'></iframe>").fadeIn();
     });
 
+    // Switch to SickBeard App
     $("#sickbeard_menu").click(function () {
         $(".footer").hide();
         $(".main").hide();
-        $("#embed").html("<iframe class='iframe' src='http://tvshows.nibty.com/'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='iframe' src='" + sickBeardUrl + "'></iframe>").fadeIn();
     });
 
+    // Switch to Headphones App
     $("#headphones_menu").click(function () {
         $(".main").hide();
         $(".footer").hide();
-        $("#embed").html("<iframe class='iframe' src='http://nzbmusic.nibty.com/'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='iframe' src='" + headPhonesUrl + "'></iframe>").fadeIn();
     });
 
-    $("#ganglia_menu").click(function () {
-        $(".footer").hide();
-        $(".main").hide();
-        if (isMobile(navigator.userAgent)) {
-            $("#embed").html("<iframe class='iframe' src='http://nibty.com/ganglia/mobile.php'></iframe>").fadeIn();
-        } else {
-            $("#embed").html("<iframe id='iframe' class='iframe' src='http://nibty.com/ganglia/?c=unspecified&h=192.168.0.101&m=load_one&r=hour&s=by%20name&hc=4&mc=2'></iframe>").fadeIn();
-        }
-    });
-
-    $("#ebooks_menu").click(function () {
-        $(".main").hide();
-        $(".footer").hide();
-        $("#embed").html("<iframe class='iframe' src='http://ebooks.nibty.com/'></iframe>").fadeIn();
-    });
-
+    // Set current menu item as active
     $('.navbar li').click(function (e) {
         $('.navbar li.active').removeClass('active');
         var $this = $(this);
@@ -73,6 +76,7 @@ $(document).ready(function () {
         }
     });
 
+    // Load correct page using the url hash
     if (window.location.hash) {
         $('.navbar a[href=' + window.location.hash + ']').click();
     }
@@ -84,10 +88,16 @@ $(document).ready(function () {
         "img/background/3.jpg",
         "img/background/4.jpg"
     ], {duration: 3000, fade: 750});
-
 });
 
+
+/**
+ * Detect mobile browser
+ *
+ * @param userAgent
+ * @returns {boolean}
+ */
 function isMobile(userAgent) {
-    return(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
+    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
 }
 
