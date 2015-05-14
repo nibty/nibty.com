@@ -3,6 +3,8 @@ $main-color:                 #2A7DA1;
 $secondary-color:            #FF5E3A;
 $third-color:                #FF9F88;
 $forth-color:                #404040;
+$header-font-color:          #FFFFFF;
+$font-color:                 #FFFFFF;
 
 // Fonts
 $p-font-stack:               'Open Sans', sans-serif;
@@ -13,7 +15,7 @@ $background-overlay-color:   $main-color;
 $background-overlay-opacity: 0.6;
 $link-color:                 $secondary-color;
 $link-color-hover:           $third-color;
-$navbar-selector-opacity:    0.8;
+$navbar-selector-opacity:    0.6;
 $bar-color:                  $forth-color;
 
 /* This mixin creates rbga color from hex and opacity */
@@ -24,20 +26,18 @@ $bar-color:                  $forth-color;
 
 html, body {
   font-family: $p-font-stack;
-  @include background-opacity($background-overlay-color, 0.6);
+  @include background-opacity($background-overlay-color, $background-overlay-opacity);
   padding-top: 50px;
   padding-bottom: 50px;
   height: 100%;
 }
 
-/* Give navbar a transparent look */
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
-  @include background-opacity($link-color, $navbar-selector-opacity);
-}
-
 /* Give the navbar active item a nice background color */
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
+  @include background-opacity($link-color, 0.8);
+}
 .navbar-inverse .navbar-nav>.active>a:hover  {
-  @include background-opacity($link-color-hover, $navbar-selector-opacity);
+  @include background-opacity($link-color-hover, 0.8);
 }
 
 /* Give the dropdown menu a darker color to make visibility easier */
@@ -56,7 +56,7 @@ a:hover, a:active {
 
 /* Style navbar */
 .navbar {
-    @include background-opacity($bar-color, $background-overlay-opacity);
+    @include background-opacity($bar-color, $navbar-selector-opacity);
     border-width: 0;
 }
 
@@ -65,13 +65,13 @@ a:hover, a:active {
   padding: 40px 15px;
 
   p {
-    color: #FFF;
+    color: $font-color;
     margin-top: 30px;
     font-size: 22px;
   }
 
   h1 {
-     color: #FFF;
+     color: $header-font-color;
      text-align: center;
      font-family: $h1-font-stack;
      font-size: 50px;
@@ -79,7 +79,7 @@ a:hover, a:active {
   }
 
   h2 {
-    color: #FFF;
+    color: $header-font-color;
     text-align: center;
     font-family: $h1-font-stack;
     font-size: 40px;
@@ -90,7 +90,7 @@ a:hover, a:active {
 /* Style the footer */
 .footer {
   text-align: center;
-  @include background-opacity($bar-color, $background-overlay-opacity);
+  @include background-opacity($bar-color, $navbar-selector-opacity);
   padding-top: 15px;
 
   p {
