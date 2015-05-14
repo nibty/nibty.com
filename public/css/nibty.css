@@ -1,13 +1,13 @@
 html, body {
     padding-top: 50px;
     padding-bottom: 50px;
-    background: rgba(42, 125, 161, 0.3);
+    background: rgba(42, 125, 161, 0.6);
     font-family: 'Open Sans', sans-serif;
     height: 100%;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
-    background-color: #FF5E3A;
+    background-color: rgba(255, 94, 58, 0.8);
 }
 
 .navbar-inverse .navbar-nav>.active>a:hover  {
@@ -28,7 +28,7 @@ a:hover, a:active {
 }
 
 .navbar {
-    background: rgba(64, 64, 64, 0.3);
+    background: rgba(64, 64, 64, 0.6);
     border-width: 0;
 }
 
@@ -64,7 +64,7 @@ a:hover, a:active {
 
 .footer {
     text-align: center;
-    background: rgba(64, 64, 64, 0.3);
+    background: rgba(64, 64, 64, 0.6);
     padding: 15px 0 0 0;
 }
 
