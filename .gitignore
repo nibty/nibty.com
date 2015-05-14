@@ -1,0 +1,7 @@
+node_modules
+.idea
+public/js/bootstrap.min.js
+public/js/jquery.min.js
+public/js/nibty.min.js
+public/js/jquery.min.map
+public/js/jquery.backstretch.min.js

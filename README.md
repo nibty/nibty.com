@@ -1,2 +1,1 @@
-# nibty.com
-My homepage
+My Homepage

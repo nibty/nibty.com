@@ -1,0 +1,91 @@
+html, body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: rgba(116, 175, 173, 0.5);
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    background-color: #D9853B;
+}
+
+.navbar-inverse {
+    background-color: #D9853B;
+}
+
+a:link, a:visited {
+    color: #D9853B;
+}
+
+a:hover, a:active {
+    color: #FFF;
+    text-decoration: none;
+}
+
+
+.navbar {
+    background: rgba(64, 64, 64, 0.5);
+    border-width: 0;
+}
+
+.main h1 {
+     color: #FFF;
+     text-align: center;
+     font-family: 'Bree Serif', sans-serif;
+     font-size: 50px;
+     font-weight: 400;
+ }
+
+.main h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.main p {
+    color: #FFF;
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.main {
+    padding: 40px 15px;
+}
+
+.footer p {
+    font-size: 18px;
+}
+
+.footer {
+    text-align: center;
+    background: rgba(64, 64, 64, 0.5);
+    padding: 15px 0 0 0;
+}
+
+.center-block {
+    float: none;
+}
+
+#embed {
+    display:none;
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}

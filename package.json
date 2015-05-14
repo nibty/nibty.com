@@ -1,0 +1,31 @@
+{
+  "name": "nibty.com",
+  "version": "1.0.0",
+  "description": "My Personal Website",
+  "main": "public/index.html",
+  "dependencies": {
+    "jquery-backstretch": "http://github.com/srobbin/jquery-backstretch.git",
+    "bootstrap": "^3.3.4",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nibty/nibty.com.git"
+  },
+  "author": "Nicholas Pettas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nibty/nibty.com/issues"
+  },
+  "homepage": "https://github.com/nibty/nibty.com"
+}
