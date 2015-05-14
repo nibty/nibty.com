@@ -1,81 +1,109 @@
+// Colors
+$main-color:                 #2A7DA1;
+$secondary-color:            #FF5E3A;
+$third-color:                #FF9F88;
+$forth-color:                #404040;
+
+// Fonts
+$p-font-stack:               'Open Sans', sans-serif;
+$h1-font-stack:              'Bree Serif', sans-serif;
+
+// Set element colors
+$background-overlay-color:   $main-color;
+$background-overlay-opacity: 0.6;
+$link-color:                 $secondary-color;
+$link-color-hover:           $third-color;
+$navbar-selector-opacity:    0.8;
+$bar-color:                  $forth-color;
+
+/* This mixin creates rbga color from hex and opacity */
+@mixin background-opacity($color, $opacity: 0.5) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
 html, body {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background: rgba(42, 125, 161, 0.6);
-    font-family: 'Open Sans', sans-serif;
-    height: 100%;
+  font-family: $p-font-stack;
+  @include background-opacity($background-overlay-color, 0.6);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: 100%;
 }
 
+/* Give navbar a transparent look */
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
-    background-color: rgba(255, 94, 58, 0.8);
+  @include background-opacity($link-color, $navbar-selector-opacity);
 }
 
+/* Give the navbar active item a nice background color */
 .navbar-inverse .navbar-nav>.active>a:hover  {
-    background-color: #FF9F88;
+  @include background-opacity($link-color-hover, $navbar-selector-opacity);
 }
 
+/* Give the dropdown menu a darker color to make visibility easier */
 .navbar-collapse.in {
-    background-color: rgba(35, 35, 35, 0.8);
+  @include background-opacity(#222, 0.8);
 }
 
+/* Style the href links */
 a:link, a:visited {
-    color: #FF5E3A;
+  color: $link-color;
 }
-
 a:hover, a:active {
-    color: #FF9F88;
-    text-decoration: none;
+  color: $link-color-hover;
+  text-decoration: none;
 }
 
-.navbar-inverse {
-    background-color: #D9853B;
-}
-
+/* Style navbar */
 .navbar {
-    background: rgba(64, 64, 64, 0.6);
+    @include background-opacity($bar-color, $background-overlay-opacity);
     border-width: 0;
 }
 
-.main h1 {
-     color: #FFF;
-     text-align: center;
-     font-family: 'Bree Serif', sans-serif;
-     font-size: 50px;
-     font-weight: 400;
- }
+/* Style the main content */
+.main {
+  padding: 40px 15px;
 
-.main h2 {
-    color: #FFF;
-    text-align: center;
-    font-family: 'Bree Serif', sans-serif;
-    font-size: 40px;
-    font-weight: 300;
-}
-
-.main p {
+  p {
     color: #FFF;
     margin-top: 30px;
     font-size: 22px;
-}
+  }
 
-.main {
-    padding: 40px 15px;
-}
+  h1 {
+     color: #FFF;
+     text-align: center;
+     font-family: $h1-font-stack;
+     font-size: 50px;
+     font-weight: 400;
+  }
 
-.footer p {
-    font-size: 18px;
-}
-
-.footer {
+  h2 {
+    color: #FFF;
     text-align: center;
-    background: rgba(64, 64, 64, 0.6);
-    padding: 15px 0 0 0;
+    font-family: $h1-font-stack;
+    font-size: 40px;
+    font-weight: 300;
+  }
 }
 
+/* Style the footer */
+.footer {
+  text-align: center;
+  @include background-opacity($bar-color, $background-overlay-opacity);
+  padding-top: 15px;
+
+  p {
+    font-size: 18px;
+  }
+}
+
+/* Hack to center cols correctly */
 .center-block {
     float: none;
 }
 
+/* Fit embedded webApps fully in the browsers. leave room for the top navbar */
 #embed {
     display:none;
     margin-top: 50px;
@@ -86,6 +114,7 @@ a:hover, a:active {
     bottom: 0;
 }
 
+/* Fit the webApp fully in the embed div */
 .iframe {
     border: 0;
     position: absolute;
