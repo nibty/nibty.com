@@ -91,6 +91,11 @@ $(document).ready(function () {
         if (!$this.hasClass('active')) {
             $this.addClass('active');
         }
+
+        // Remove dropdown window on click
+        if ($(".navbar-toggle").is(":visible")) {
+            $(".navbar-collapse").removeClass("in").addClass("collapse");
+        }
     });
 
     // Load correct page using the url hash
