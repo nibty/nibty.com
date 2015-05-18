@@ -4,6 +4,9 @@
  * Author: Nicholas Pettas <npettas@gmail.com>
  *
  */
+
+var doNotChangeMenu = false;
+
 $(document).ready(function () {
 
     var sabnzbdUrl = "http://nzb.nickpettas.com";
@@ -15,19 +18,33 @@ $(document).ready(function () {
     var headPhonesUrl = "http://nzbmusic.nibty.com";
 
     // Fade main content in
-    $(".main").fadeIn(500);
+    $(".top-container").fadeIn(800);
 
     // Switch to home page
-    $("#home").click(function () {
-        $("#embed").hide();
+    $("li.home-menu").click(function () {
+        doNotChangeMenu = true;
+        changeUrl("home", "#");
+
         $(".footer").show();
-        $(".main").show();
+        $(".info-container").show();
+        $("#embed").hide();
+        goToByScroll(".top-container");
+    });
+
+    // Scroll to projects
+    $('li.projects-menu').click(function () {
+        doNotChangeMenu = true;
+        changeUrl("projects", "#projects");
+
+        $(".footer").show();
+        $(".info-container").show();
+        $("#embed").hide();
+        goToByScroll(".projects-container");
     });
 
     // Switch to plex webapp or mobile App
-    $("#plex_menu").click(function () {
-        $(".main").hide();
-        $(".footer").hide();
+    $("#plex-menu").click(function () {
+        doNotChangeMenu = true;
         if (isMobile(navigator.userAgent)) {
             window.location = plexUrlMobile;
         } else {
@@ -36,41 +53,41 @@ $(document).ready(function () {
     });
 
     // Switch to Sabnzbd App
-    $("#sabnzbd_menu").click(function () {
-        $(".main").hide();
+    $("li.sabnzbd-menu").click(function () {
         $(".footer").hide();
+        $(".info-container").hide();
         if (isMobile(navigator.userAgent)) {
-            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrlMobile + "'></iframe>").fadeIn();
+            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrlMobile + "'></iframe>").show();
         } else {
-            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrl + "'></iframe>").fadeIn();
+            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrl + "'></iframe>").show();
         }
     });
 
     // Switch to CouchPotato App
-    $("#couchpotato_menu").click(function () {
-        $(".main").hide();
+    $("li.couchpotato-menu").click(function () {
         $(".footer").hide();
+        $(".info-container").hide();
         $("#embed").html("<iframe class='iframe' src='" + couchPotatoUrl + "'></iframe>").fadeIn();
     });
 
     // Switch to SickBeard App
-    $("#sickbeard_menu").click(function () {
+    $("li.sickbeard-menu").click(function () {
         $(".footer").hide();
-        $(".main").hide();
+        $(".info-container").hide();
         $("#embed").html("<iframe class='iframe' src='" + sickBeardUrl + "'></iframe>").fadeIn();
     });
 
     // Switch to Headphones App
-    $("#headphones_menu").click(function () {
-        $(".main").hide();
+    $("li.headphones-menu").click(function () {
         $(".footer").hide();
+        $(".info-container").hide();
         $("#embed").html("<iframe class='iframe' src='" + headPhonesUrl + "'></iframe>").fadeIn();
     });
 
     // Set current menu item as active
     $('.navbar li').click(function (e) {
-        $('.navbar li.active').removeClass('active');
         var $this = $(this);
+        $('.navbar li.active').removeClass('active');
         if (!$this.hasClass('active')) {
             $this.addClass('active');
         }
@@ -78,7 +95,7 @@ $(document).ready(function () {
 
     // Load correct page using the url hash
     if (window.location.hash) {
-        $('.navbar a[href=' + window.location.hash + ']').click();
+        $('.navbar .' + window.location.hash.replace("#","") + '-menu').click();
     }
 
     // Background slideshow
@@ -90,7 +107,6 @@ $(document).ready(function () {
     ], {duration: 3000, fade: 750});
 });
 
-
 /**
  * Detect mobile browser
  *
@@ -101,3 +117,50 @@ function isMobile(userAgent) {
     return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
 }
 
+/**
+ * Scroll to div
+ *
+ * @param id
+ */
+function goToByScroll(id) {
+    $('html,body').animate({
+        scrollTop: $(id).offset().top - 50
+    }, 'slow', function() {
+        doNotChangeMenu = false;
+    });
+}
+
+/**
+ * Update browser url without reloading
+ *
+ * @param page
+ * @param url
+ */
+function changeUrl(page, url) {
+    if (typeof (history.pushState) != "undefined") {
+        var obj = { Page: page, Url: url };
+        history.pushState(obj, obj.Page, obj.Url);
+    }
+}
+
+/**
+ * Scroll listener
+ */
+$(window).scroll(function () {
+    var currentClass;
+
+    if ($(window).scrollTop() < 20 && !doNotChangeMenu && !$("#embed").is(":visible")) {
+        $('.navbar li.active').removeClass('active');
+        currentClass = $('li.home-menu');
+        if (!currentClass.hasClass('active')) {
+            currentClass.addClass('active');
+        }
+
+    } else if ($(window).scrollTop() >= $('.projects-container').offset().top - 50 && !doNotChangeMenu && !$("#embed").is(":visible")) {
+        $('.navbar li.active').removeClass('active');
+        currentClass = $('li.projects-menu');
+        if (!currentClass.hasClass('active')) {
+            currentClass.addClass('active');
+        }
+    }
+});

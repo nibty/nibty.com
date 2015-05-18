@@ -12,8 +12,7 @@ $p-font-stack:               'Open Sans', sans-serif;
 $h1-font-stack:              'Bree Serif', sans-serif;
 
 // Set element colors
-$background-overlay-color:   $main-color;
-$background-overlay2-color:  $fifth-color;
+$background-overlay-color:   $fifth-color;
 $background-overlay-opacity: 0.6;
 $link-color:                 $secondary-color;
 $link-color-hover:           $third-color;
@@ -137,22 +136,6 @@ a:hover, a:active {
     }
   }
 
-  h1 {
-     color: $header-font-color;
-     text-align: center;
-     font-family: $h1-font-stack;
-     font-size: 50px;
-     font-weight: 400;
-  }
-
-  h2 {
-    color: $header-font-color;
-    text-align: center;
-    font-family: $h1-font-stack;
-    font-size: 40px;
-    font-weight: 300;
-  }
-
   .nick-image-container {
     padding-right: 0;
     padding-top: 40px;
@@ -169,13 +152,62 @@ a:hover, a:active {
         left: -16px;
       }
     }
+  }
 
-    .nick-image {
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      border: 2px solid #FFF;
+  .nick-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #FFF;
+  }
+}
+
+.projects-container {
+  @include background-opacity(#FFF, 1);
+  padding: 20px 0 40px 0;
+
+  h2 {
+    padding-left: 30px;
+    padding-bottom: 10px;
+    color: #444;
+    font-family: $h1-font-stack;
+    font-size: 30px;
+    font-weight: 200;
+  }
+
+  h3 {
+    text-align: center;
+
+    @media (max-width: 768px) {
+      text-align: left;
     }
+  }
+
+  p {
+    color: #666;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  strong {
+    color: $main-color;
+  }
+
+  .logo {
+    width: 200px;
+    padding: 20px 0 5px;
+  }
+}
+
+.contact-container {
+  @include background-opacity($background-overlay-color, 1);
+  padding: 20px 0 40px 0;
+
+  .table>tbody>tr>td {
+    color: $font-color;
+    border-top: 0;
+    margin-top: 20px;
+    font-size: 16px;
   }
 }
 
@@ -209,6 +241,7 @@ a:hover, a:active {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 999999;
 }
 
 /* Fit the webApp fully in the embed div */
