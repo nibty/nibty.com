@@ -53,11 +53,6 @@ a:hover, a:active {
   text-decoration: none;
 }
 
-.top-spacing-container {
-  @include background-opacity($bar-color, $navbar-selector-opacity);
-  height: 50px;
-}
-
 .info-container {
   h1 {
     color: $header-font-color;
@@ -98,6 +93,7 @@ a:hover, a:active {
 /* Style the main content */
 .top-container {
   @include background-opacity($background-overlay-color, $background-overlay-opacity);
+  margin-top: 50px;
   padding: 100px 0 100px;
 
   @media (max-width: 768px) {
@@ -132,7 +128,9 @@ a:hover, a:active {
     font-size: 22px;
 
     @media (max-width: 480px) {
+      margin-top: 10px;
       margin-bottom: 30px;
+      font-size: 18px;
     }
   }
 
@@ -151,6 +149,12 @@ a:hover, a:active {
         position: relative;
         left: -16px;
       }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .social-media-icons {
+      text-align: center;
     }
   }
 

@@ -17,9 +17,6 @@ $(document).ready(function () {
     var sickBeardUrl = "http://tvshows.nibty.com";
     var headPhonesUrl = "http://nzbmusic.nibty.com";
 
-    // Fade main content in
-    $(".top-container").fadeIn(800);
-
     // Switch to home page
     $("li.home-menu").click(function () {
         doNotChangeMenu = true;
