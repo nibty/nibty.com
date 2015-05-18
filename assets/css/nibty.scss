@@ -2,7 +2,8 @@
 $main-color:                 #2A7DA1;
 $secondary-color:            #FF5E3A;
 $third-color:                #FF9F88;
-$forth-color:                #404040;
+$forth-color:                #303030;
+$fifth-color:                #2A7DA1;
 $header-font-color:          #FFFFFF;
 $font-color:                 #FFFFFF;
 
@@ -12,10 +13,11 @@ $h1-font-stack:              'Bree Serif', sans-serif;
 
 // Set element colors
 $background-overlay-color:   $main-color;
+$background-overlay2-color:  $fifth-color;
 $background-overlay-opacity: 0.6;
 $link-color:                 $secondary-color;
 $link-color-hover:           $third-color;
-$navbar-selector-opacity:    0.6;
+$navbar-selector-opacity:    0.9;
 $bar-color:                  $forth-color;
 
 /* This mixin creates rbga color from hex and opacity */
@@ -26,23 +28,21 @@ $bar-color:                  $forth-color;
 
 html, body {
   font-family: $p-font-stack;
-  @include background-opacity($background-overlay-color, $background-overlay-opacity);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  height: 100%;
+}
+
+/* Style navbar */
+.navbar {
+  @include background-opacity($bar-color, 1);
+  border-width: 0;
+  margin-bottom: 0
 }
 
 /* Give the navbar active item a nice background color */
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
-  @include background-opacity($link-color, 0.8);
+  background: $link-color;
 }
 .navbar-inverse .navbar-nav>.active>a:hover  {
-  @include background-opacity($link-color-hover, 0.8);
-}
-
-/* Give the dropdown menu a darker color to make visibility easier */
-.navbar-collapse.in {
-  @include background-opacity(#222, 0.8);
+  background: $link-color-hover;
 }
 
 /* Style the href links */
@@ -54,20 +54,87 @@ a:hover, a:active {
   text-decoration: none;
 }
 
-/* Style navbar */
-.navbar {
-    @include background-opacity($bar-color, $navbar-selector-opacity);
-    border-width: 0;
+.top-spacing-container {
+  @include background-opacity($bar-color, $navbar-selector-opacity);
+  height: 50px;
+}
+
+.info-container {
+  h1 {
+    color: $header-font-color;
+    text-align: center;
+    font-family: $h1-font-stack;
+    font-size: 50px;
+    font-weight: 400;
+
+    @media (max-width: 768px) {
+      padding: 20px 0 40px;
+    }
+  }
+
+  h2 {
+    padding-left: 30px;
+    padding-bottom: 10px;
+    color: #FFF;
+    font-family: $h1-font-stack;
+    font-size: 30px;
+    font-weight: 200;
+  }
+
+  h3 {
+    color: $secondary-color;
+    font-family: $h1-font-stack;
+    font-size: 25px;
+    font-weight: 200;
+  }
+
+  h3:hover {
+    color: $third-color;
+    font-family: $h1-font-stack;
+    font-size: 25px;
+    font-weight: 200;
+  }
 }
 
 /* Style the main content */
-.main {
-  padding: 40px 15px;
+.top-container {
+  @include background-opacity($background-overlay-color, $background-overlay-opacity);
+  padding: 100px 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 20px 0 40px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 0 20px;
+  }
+
+  h2 {
+    text-align: center;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    color: #FFF;
+    font-family: $h1-font-stack;
+    font-size: 30px;
+    font-weight: 200;
+  }
+
+  h3 {
+    color: $secondary-color;
+    text-align: center;
+    font-family: $h1-font-stack;
+    font-size: 25px;
+    font-weight: 200;
+  }
 
   p {
     color: $font-color;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 22px;
+
+    @media (max-width: 480px) {
+      margin-bottom: 30px;
+    }
   }
 
   h1 {
@@ -85,22 +152,52 @@ a:hover, a:active {
     font-size: 40px;
     font-weight: 300;
   }
+
+  .nick-image-container {
+    padding-right: 0;
+    padding-top: 40px;
+
+    @media (max-width: 1200px) {
+      padding-right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      padding-right: 0;
+
+      h2 {
+        position: relative;
+        left: -16px;
+      }
+    }
+
+    .nick-image {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #FFF;
+    }
+  }
 }
 
 /* Style the footer */
 .footer {
-  text-align: center;
   @include background-opacity($bar-color, $navbar-selector-opacity);
+  text-align: center;
   padding-top: 15px;
+  padding-bottom: 5px;
 
   p {
     font-size: 18px;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
   }
 }
 
 /* Hack to center cols correctly */
 .center-block {
-    float: none;
+  float: none;
 }
 
 /* Fit embedded webApps fully in the browsers. leave room for the top navbar */
