@@ -9,13 +9,13 @@ var doNotChangeMenu = false;
 
 $(document).ready(function () {
 
-    var sabnzbdUrl = "http://nzb.nickpettas.com";
+    var sabnzbdUrl       = "http://nzb.nickpettas.com";
     var sabnzbdUrlMobile = "http://nzb.nickpettas.com/m";
-    var plexUrl = "http://plex.tv/web/app";
-    var plexUrlMobile = "https://itunes.apple.com/us/app/plex/id383457673";
-    var couchPotatoUrl = "http://nzbmovies.nibty.com";
-    var sickBeardUrl = "http://tvshows.nibty.com";
-    var headPhonesUrl = "http://nzbmusic.nibty.com";
+    var plexUrl          = "http://plex.tv/web/app";
+    var plexUrlMobile    = "https://itunes.apple.com/us/app/plex/id383457673";
+    var couchPotatoUrl   = "http://nzbmovies.nibty.com";
+    var sickBeardUrl     = "http://tvshows.nibty.com";
+    var headPhonesUrl    = "http://nzbmusic.nibty.com";
 
     // Switch to home page
     $("li.home-menu").click(function () {
@@ -97,7 +97,7 @@ $(document).ready(function () {
 
     // Load correct page using the url hash
     if (window.location.hash) {
-        $('.navbar .' + window.location.hash.replace("#","") + '-menu').click();
+        $('.navbar .' + window.location.hash.replace("#", "") + '-menu').click();
     }
 
     // Background slideshow
@@ -127,7 +127,7 @@ function isMobile(userAgent) {
 function goToByScroll(id) {
     $('html,body').animate({
         scrollTop: $(id).offset().top - 50
-    }, 'slow', function() {
+    }, 'slow', function () {
         doNotChangeMenu = false;
     });
 }
@@ -140,7 +140,7 @@ function goToByScroll(id) {
  */
 function changeUrl(page, url) {
     if (typeof (history.pushState) != "undefined") {
-        var obj = { Page: page, Url: url };
+        var obj = {Page: page, Url: url};
         history.pushState(obj, obj.Page, obj.Url);
     }
 }
