@@ -40,7 +40,7 @@ $(document).ready(function () {
     });
 
     // Switch to plex webapp or mobile App
-    $("#plex-menu").click(function () {
+    $("li.plex-menu").click(function () {
         doNotChangeMenu = true;
         if (isMobile(navigator.userAgent)) {
             window.location = plexUrlMobile;
