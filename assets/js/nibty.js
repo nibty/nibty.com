@@ -14,7 +14,7 @@ $(document).ready(function () {
     var plexUrl          = "http://plex.tv/web/app";
     var plexUrlMobile    = "https://itunes.apple.com/us/app/plex/id383457673";
     var couchPotatoUrl   = "http://nzbmovies.nibty.com";
-    var sickBeardUrl     = "http://tvshows.nibty.com";
+    var sonarrUrl        = "http://sonarr.nibty.com";
     var headPhonesUrl    = "http://nzbmusic.nibty.com";
 
     // Switch to home page
@@ -68,10 +68,10 @@ $(document).ready(function () {
     });
 
     // Switch to SickBeard App
-    $("li.sickbeard-menu").click(function () {
+    $("li.sonarr-menu").click(function () {
         $(".footer").hide();
         $(".info-container").hide();
-        $("#embed").html("<iframe class='iframe' src='" + sickBeardUrl + "'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='iframe' src='" + sonarrUrl + "'></iframe>").fadeIn();
     });
 
     // Switch to Headphones App
