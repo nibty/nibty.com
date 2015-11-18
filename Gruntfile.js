@@ -13,7 +13,8 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: {
-                    'assets/css/nibty.css': 'assets/css/nibty.scss'
+                    'assets/css/nibty.css': 'assets/css/nibty.scss',
+                    'assets/css/retro-skate.css': 'assets/css/retro-skate.scss'
                 }
             }
         },
