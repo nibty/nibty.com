@@ -25,7 +25,6 @@ module.exports = function (grunt) {
                     'node_modules/jquery/dist/jquery.min.js',
                     'assets/js/*.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
-                    'node_modules/jquery.backstretch/jquery.backstretch.min.js',
                     'node_modules/retina.js/dist/retina.min.js'
                 ],
                 dest: 'public/js/app.js'

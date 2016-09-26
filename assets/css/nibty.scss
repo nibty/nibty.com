@@ -13,10 +13,10 @@ $h1-font-stack:              'Bree Serif', sans-serif;
 
 // Set element colors
 $background-overlay-color:   $fifth-color;
-$background-overlay-opacity: 0.6;
+$background-overlay-opacity: 1;
 $link-color:                 $secondary-color;
 $link-color-hover:           $third-color;
-$navbar-selector-opacity:    0.9;
+$navbar-selector-opacity:    1;
 $bar-color:                  $forth-color;
 
 /* This mixin creates rbga color from hex and opacity */
@@ -25,8 +25,15 @@ $bar-color:                  $forth-color;
   background: rgba($color, $opacity);
 }
 
-html, body {
+html {
   font-family: $p-font-stack;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: $p-font-stack;
+  margin-bottom: 60px;
 }
 
 /* Style navbar */
@@ -217,6 +224,11 @@ a:hover, a:active {
 
 /* Style the footer */
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+
   @include background-opacity($bar-color, $navbar-selector-opacity);
   text-align: center;
   padding-top: 15px;

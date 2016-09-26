@@ -99,14 +99,6 @@ $(document).ready(function () {
     if (window.location.hash) {
         $('.navbar .' + window.location.hash.replace("#", "") + '-menu').click();
     }
-
-    // Background slideshow
-    $.backstretch([
-        "img/background/1.jpg",
-        "img/background/2.jpg",
-        "img/background/3.jpg",
-        "img/background/4.jpg"
-    ], {duration: 3000, fade: 750});
 });
 
 /**
