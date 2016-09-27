@@ -1,9 +1,9 @@
 // Colors
-$main-color:                 #2A7DA1;
-$secondary-color:            #FF5E3A;
-$third-color:                #FF9F88;
-$forth-color:                #303030;
-$fifth-color:                #2A7DA1;
+$main-color:                 #2D3F49;
+$secondary-color:            #626B6D;
+$third-color:                #969691;
+$forth-color:                #CBC2B5;
+$fifth-color:                #FFEDD9;
 $header-font-color:          #FFFFFF;
 $font-color:                 #FFFFFF;
 
@@ -12,12 +12,12 @@ $p-font-stack:               'Open Sans', sans-serif;
 $h1-font-stack:              'Bree Serif', sans-serif;
 
 // Set element colors
-$background-overlay-color:   $fifth-color;
+$background-overlay-color:   $main-color;
 $background-overlay-opacity: 1;
-$link-color:                 $secondary-color;
+$link-color:                 $forth-color;
 $link-color-hover:           $third-color;
 $navbar-selector-opacity:    1;
-$bar-color:                  $forth-color;
+$bar-color:                  $secondary-color;
 
 /* This mixin creates rbga color from hex and opacity */
 @mixin background-opacity($color, $opacity: 0.5) {
@@ -40,12 +40,21 @@ body {
 .navbar {
   @include background-opacity($bar-color, 1);
   border-width: 0;
-  margin-bottom: 0
+  margin-bottom: 0;
+}
+
+/* Git navbar item hover a nice background */
+.navbar-inverse .navbar-nav>li>a {
+  color: $link-color;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: $font-color;
+  background: $link-color-hover;
 }
 
 /* Give the navbar active item a nice background color */
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
-  background: $link-color;
+  background: $link-color-hover;
 }
 .navbar-inverse .navbar-nav>.active>a:hover  {
   background: $link-color-hover;
@@ -239,7 +248,7 @@ a:hover, a:active {
   padding-bottom: 5px;
 
   p {
-    font-size: 18px;
+    font-size: 16px;
 
     @media (max-width: 480px) {
       font-size: 13px;
