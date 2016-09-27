@@ -69,6 +69,10 @@ a:hover, a:active {
   text-decoration: none;
 }
 
+.ultm-color-to-hover-color:hover {
+  background-color: $link-color !important;
+}
+
 .info-container {
   h1 {
     color: $header-font-color;
