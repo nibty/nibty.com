@@ -1,11 +1,16 @@
 // Colors
+// http://www.colourlovers.com/palette/4333417/5:_youve_lost
 $main-color:                 #2D3F49;
 $secondary-color:            #626B6D;
 $third-color:                #969691;
 $forth-color:                #CBC2B5;
 $fifth-color:                #FFEDD9;
-$header-font-color:          #FFFFFF;
-$font-color:                 #FFFFFF;
+$sixth-color:                #FFFFFF;
+$header-font-color:          $sixth-color;
+$font-color:                 $sixth-color;
+$h2-font-color:              $sixth-color;
+$profile-border-color:       $sixth-color;
+$project-background-color:   $sixth-color;
 
 // Fonts
 $p-font-stack:               'Open Sans', sans-serif;
@@ -89,7 +94,7 @@ a:hover, a:active {
   h2 {
     padding-left: 30px;
     padding-bottom: 10px;
-    color: #FFF;
+    color: $h2-font-color;
     font-family: $h1-font-stack;
     font-size: 30px;
     font-weight: 200;
@@ -128,7 +133,7 @@ a:hover, a:active {
     text-align: center;
     padding-left: 30px;
     padding-bottom: 10px;
-    color: #FFF;
+    color: $h2-font-color;
     font-family: $h1-font-stack;
     font-size: 30px;
     font-weight: 200;
@@ -186,12 +191,12 @@ a:hover, a:active {
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    border: 2px solid #FFF;
+    border: 2px solid $profile-border-color;
   }
 }
 
 .projects-container {
-  @include background-opacity(#FFF, 1);
+  @include background-opacity($project-background-color, 1);
   padding: 20px 0 40px 0;
 
   h2 {

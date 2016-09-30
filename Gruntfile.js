@@ -19,6 +19,24 @@ module.exports = function (grunt) {
             }
         },
 
+        uncss: {
+            dist: {
+                files: {
+                    'public/css/app.css': ['public/index.html', 'public/retroskate/index.html']
+                },
+                ignore: [
+                    ".fade",
+                    ".fade.in",
+                    ".collapse",
+                    ".collapse.in",
+                    ".collapsing",
+                    ".alert-danger",
+                    /\.open/,
+                    ".navbar-collapse.in"
+                ]
+            }
+        },
+
         concat: {
             js: {
                 src: [
@@ -88,10 +106,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-uncss');
 
     // Default task(s).
     grunt.registerTask(
         'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'cssmin', 'clean']
+
     );
 
 };
