@@ -21,19 +21,23 @@ module.exports = function (grunt) {
 
         uncss: {
             dist: {
-                files: {
-                    'public/css/app.css': ['public/index.html', 'public/retroskate/index.html']
+                options: {
+                    ignore: [
+                        /\w\.in/,
+                        ".fade",
+                        ".collapse",
+                        ".collapsing",
+                        /(#|\.)navbar(\-[a-zA-Z]+)?/,
+                        /(#|\.)dropdown(\-[a-zA-Z]+)?/,
+                        /(#|\.)(open)/
+                    ],
+
+                    stylesheets: ["css/app.css"],
+                    ignoreSheets: [/fonts.googleapis.com/]
                 },
-                ignore: [
-                    ".fade",
-                    ".fade.in",
-                    ".collapse",
-                    ".collapse.in",
-                    ".collapsing",
-                    ".alert-danger",
-                    /\.open/,
-                    ".navbar-collapse.in"
-                ]
+                files: {
+                    'public/css/app.css': ['public/index.html', 'public/retroskate/index.html', 'public/js/app.js']
+                }
             }
         },
 
@@ -49,7 +53,7 @@ module.exports = function (grunt) {
             },
             css: {
                 src: [
-                    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                    'node_modules/bootstrap/dist/css/bootstrap.css',
                     'assets/css/*.css'
                 ],
                 dest: 'public/css/app.css'
@@ -110,8 +114,7 @@ module.exports = function (grunt) {
 
     // Default task(s).
     grunt.registerTask(
-        'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'cssmin', 'clean']
-
+        'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'uncss', 'cssmin', 'clean']
     );
 
 };
