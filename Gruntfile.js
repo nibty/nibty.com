@@ -85,7 +85,7 @@ module.exports = function (grunt) {
                 livereload: true
             },
             css: {
-                files: ['assets/css/*.scss'],
+                files: ['assets/css/*.scss', "assets/css/*.css"],
                 tasks: ['jshint:dev', 'sass', 'concat', 'cssmin', 'clean']
             },
             js: {
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
         clean: {
             js: ["public/js/*.js", "!public/js/app.min.js"],
             css: ["public/css/*.css", "!public/css/app.min.css"],
-            sass: ["assets/css/*.css", "assets/css/*.css.map", "!assets/css/*.scss", "!/assets/css/*.sass"]
+            sass: ["assets/css/*.css.map", "!assets/css/*.scss", "!/assets/css/*.sass"]
         }
     });
 
