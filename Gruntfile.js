@@ -31,7 +31,8 @@ module.exports = function (grunt) {
                         ".collapsing",
                         /(#|\.)navbar(\-[a-zA-Z]+)?/,
                         /(#|\.)dropdown(\-[a-zA-Z]+)?/,
-                        /(#|\.)(open)/
+                        /(#|\.)(open)/,
+						".webapp-iframe"
                     ],
 
                     stylesheets: ["css/app.css"],

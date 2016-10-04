@@ -54,9 +54,9 @@ $(document).ready(function () {
         $(".footer").hide();
         $(".info-container").hide();
         if (isMobile(navigator.userAgent)) {
-            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrlMobile + "'></iframe>").show();
+            $("#embed").html("<iframe class='webapp-iframe' src='" + sabnzbdUrlMobile + "'></iframe>").show();
         } else {
-            $("#embed").html("<iframe class='iframe' src='" + sabnzbdUrl + "'></iframe>").show();
+            $("#embed").html("<iframe class='webapp-iframe' src='" + sabnzbdUrl + "'></iframe>").show();
         }
     });
 
@@ -64,21 +64,21 @@ $(document).ready(function () {
     $("li.couchpotato-menu").click(function () {
         $(".footer").hide();
         $(".info-container").hide();
-        $("#embed").html("<iframe class='iframe' src='" + couchPotatoUrl + "'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='webapp-iframe' src='" + couchPotatoUrl + "'></iframe>").fadeIn();
     });
 
     // Switch to SickBeard App
     $("li.sonarr-menu").click(function () {
         $(".footer").hide();
         $(".info-container").hide();
-        $("#embed").html("<iframe class='iframe' src='" + sonarrUrl + "'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='webapp-iframe' src='" + sonarrUrl + "'></iframe>").fadeIn();
     });
 
     // Switch to Headphones App
     $("li.headphones-menu").click(function () {
         $(".footer").hide();
         $(".info-container").hide();
-        $("#embed").html("<iframe class='iframe' src='" + headPhonesUrl + "'></iframe>").fadeIn();
+        $("#embed").html("<iframe class='webapp-iframe' src='" + headPhonesUrl + "'></iframe>").fadeIn();
     });
 
     // Set current menu item as active
