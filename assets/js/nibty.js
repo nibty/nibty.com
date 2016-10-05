@@ -9,13 +9,13 @@ var doNotChangeMenu = false;
 
 $(document).ready(function () {
 
-    var sabnzbdUrl       = "http://nzb.nickpettas.com";
-    var sabnzbdUrlMobile = "http://nzb.nickpettas.com/m";
-    var plexUrl          = "http://plex.tv/web/app";
+    var sabnzbdUrl       = "https://nzb.nibty.com";
+    var sabnzbdUrlMobile = "https://nzb.nibty.com/m";
+    var plexUrl          = "https://plex.tv/web/app";
     var plexUrlMobile    = "https://itunes.apple.com/us/app/plex/id383457673";
-    var couchPotatoUrl   = "http://nzbmovies.nibty.com";
-    var sonarrUrl        = "http://sonarr.nibty.com";
-    var headPhonesUrl    = "http://nzbmusic.nibty.com";
+    var couchPotatoUrl   = "https://nzbmovies.nibty.com";
+    var sonarrUrl        = "https://sonarr.nibty.com";
+    var headPhonesUrl    = "https://nzbmusic.nibty.com";
 
     // Switch to home page
     $("li.home-menu").click(function () {
