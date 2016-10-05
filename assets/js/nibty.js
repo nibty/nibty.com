@@ -15,7 +15,7 @@ $(document).ready(function () {
     var plexUrlMobile    = "https://itunes.apple.com/us/app/plex/id383457673";
     var couchPotatoUrl   = "https://nzbmovies.nibty.com";
     var sonarrUrl        = "https://sonarr.nibty.com";
-    var headPhonesUrl    = "https://nzbmusic.nibty.com";
+    var headPhonesUrl    = "https://nzbmusic.nibty.com/home";
 
     // Switch to home page
     $("li.home-menu").click(function () {
