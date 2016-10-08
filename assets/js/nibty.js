@@ -10,7 +10,7 @@ var doNotChangeMenu = false;
 $(document).ready(function () {
 
     var sabnzbdUrl       = "https://nzb.nibty.com";
-    var sabnzbdUrlMobile = "https://nzb.nibty.com/m";
+    var sabnzbdUrlMobile = "https://nzb.nibty.com/m/";
     var plexUrl          = "https://plex.tv/web/app";
     var plexUrlMobile    = "https://itunes.apple.com/us/app/plex/id383457673";
     var couchPotatoUrl   = "https://nzbmovies.nibty.com";
