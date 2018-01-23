@@ -4,8 +4,9 @@
   "description": "My Personal Website",
   "main": "public/index.html",
   "dependencies": {
-    "bootstrap": "^3.3.4",
+    "bootstrap": "^3.3.7",
     "flat-social-icons": "0.0.1",
+    "imagizer-js": "^0.2.1",
     "jquery": "^3.1.1",
     "retina": "https://github.com/imulus/retinajs.git"
   },

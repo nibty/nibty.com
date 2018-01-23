@@ -271,7 +271,7 @@ a:hover, a:active {
 
 /* Hack to center cols correctly */
 .center-block {
-  float: none;
+  float: none !important;
 }
 
 /* Fit embedded webApps fully in the browsers. leave room for the top navbar */

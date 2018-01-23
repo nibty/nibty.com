@@ -50,7 +50,8 @@ module.exports = function (grunt) {
                     'node_modules/jquery/dist/jquery.min.js',
                     'assets/js/*.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
-                    'node_modules/retina.js/dist/retina.min.js'
+                    'node_modules/retina.js/dist/retina.min.js',
+                    'node_modules/imagizer-js/dist/imagizer.js'
                 ],
                 dest: 'public/js/app.js'
             },
@@ -117,7 +118,7 @@ module.exports = function (grunt) {
 
     // Default task(s).
     grunt.registerTask(
-        'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'uncss', 'cssmin', 'clean']
+        'default', ['jshint:dev', 'sass', 'concat', 'uglify', 'cssmin', 'clean']
     );
 
 };
